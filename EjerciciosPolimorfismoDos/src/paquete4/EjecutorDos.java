@@ -3,20 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paquete1;
+package paquete4;
 
+import java.util.ArrayList;
+import paquete2.Arriendo;
 import paquete3.ArriendoLocalComercial;
 import paquete3.ArriendoLocalComida;
 import paquete3.ArriendoLocalSesiones;
-import java.util.ArrayList;
-import paquete2.Arriendo;
-/**
- *
- * @author reroes
- */
-public class Ejecutor {
-    
+
+public class EjecutorDos {
     public static void main(String[] args) {
+        
         ArrayList<Arriendo> listaArriendos = new ArrayList<>();
         
         ArriendoLocalComida arriendoComida = new ArriendoLocalComida(
@@ -24,12 +21,6 @@ public class Ejecutor {
         arriendoComida.establecerIva(10); // en porcentaje
         arriendoComida.establecerValorAgua(20.2); // en $
         arriendoComida.establecerValorLuz(40.2); // en $
-        
-        
-        ArriendoLocalComida arriendoComida2 = new ArriendoLocalComida(
-                "Christian Cruz", 300, 10, 20.2, 40.2);
-        
-        
         
         ArriendoLocalComercial arriendoComercial = new ArriendoLocalComercial(
                 "Andrew Schroeder", 400);
@@ -45,17 +36,14 @@ public class Ejecutor {
         listaArriendos.add(arriendoSesiones);
         
         for (int i = 0; i < listaArriendos.size(); i++) {
-            /*
-            es una lista de objetos, podria ser una instancia de arrayList, es un metodo que recupera elemnto 
-            en la posicion 'i' de la lista listaArriendo 
-            listaArriendo.get('i') es una clase q no se sabe 
-            */
-            listaArriendos.get(i).establecerArriendoMensual(); // se llama al 
-                                                            // métodos abstracto
-            System.out.println(listaArriendos.get(i));
-            System.out.println();
+            listaArriendos.get(i).establecerArriendoMensual();
         }
         
-        
+        CentroComercial centro = new CentroComercial("La Pradera", 
+                listaArriendos);
+        centro.establecerTotalArriendosBaseMensual();
+        centro.establecerTotalArriendosFinalMensual();
+        System.out.println(centro);
+    
     }
 }
