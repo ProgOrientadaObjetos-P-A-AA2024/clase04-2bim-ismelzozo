@@ -45,7 +45,7 @@ public class ArriendoLocalComida extends Arriendo {
                 obtenerCuotaBase();
         arriendoMensual = subtotal + (subtotal * (obtenerIva()/100));
     }
-    
+     
     public double obtenerValorLuz(){
         return valorLuz;
     }
